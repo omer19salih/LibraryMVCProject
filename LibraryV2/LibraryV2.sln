@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryV2", "LibraryV2.csproj", "{994A62B3-B2FC-4572-A478-AC9A27532007}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_Library_Otomasyon", "..\MVC_Library_Otomasyon\MVC_Library_Otomasyon.csproj", "{7B46AEC0-77B5-46FA-8F6F-FDFA792A131B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{994A62B3-B2FC-4572-A478-AC9A27532007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{994A62B3-B2FC-4572-A478-AC9A27532007}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{994A62B3-B2FC-4572-A478-AC9A27532007}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{994A62B3-B2FC-4572-A478-AC9A27532007}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B46AEC0-77B5-46FA-8F6F-FDFA792A131B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B46AEC0-77B5-46FA-8F6F-FDFA792A131B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B46AEC0-77B5-46FA-8F6F-FDFA792A131B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B46AEC0-77B5-46FA-8F6F-FDFA792A131B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {91CD67C1-1EE5-4D73-BEDF-B305CFC5A9D5}
+	EndGlobalSection
+EndGlobal

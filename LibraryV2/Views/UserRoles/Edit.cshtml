@@ -1,0 +1,38 @@
+﻿@model MVC_Library_Otomasyon.Model.UserRoles
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg">
+        <div class="ibox">
+            <div class="ibox-head">
+                User Role Edit
+            </div>
+            <div class="ibox-body">
+                @using (Html.BeginForm("Edit", "UserRoles", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.UserId)
+                        @Html.TextBoxFor(x => x.UserId, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.UserId, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.RoleId)
+                        @Html.DropDownListFor(x => x.RoleId, (SelectList)ViewBag.list, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.RoleId, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Save</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

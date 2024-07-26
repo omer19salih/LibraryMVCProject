@@ -1,0 +1,51 @@
+﻿@model List<MVC_Library_Otomasyon.Model.Books>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="ibox">
+            <div class="ibox-head">
+                Book List
+            </div>
+            <div class="ibox-body" >
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Genre</th>
+                            <th>Barcode Number</th>
+                            <th>Book Name</th>
+                            <th>Author Name</th>
+                            <th>Added Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(x => item.Id)</td>
+                                <td>@Html.DisplayFor(x => item.BookGenres.Genre)</td>
+                                <td>@Html.DisplayFor(x => item.BarcodeNumber)</td>
+                                <td>@Html.DisplayFor(x => item.BookName)</td>
+                                <td>@Html.DisplayFor(x => item.AuthorName)</td>
+                                <td>@Html.DisplayFor(x => item.AddedDate)</td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-info" }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger"  ,oncliks ="retun confirn('Kayıt silinsin mi ')"})
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="form-group">
+                    @Html.ActionLink("New", "Add", null, new { @class = "btn btn-success" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

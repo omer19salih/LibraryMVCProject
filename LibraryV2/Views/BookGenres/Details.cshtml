@@ -1,0 +1,32 @@
+﻿@model MVC_Library_Otomasyon.Model.BookGenres
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg">
+        <div class="ibox">
+            <div class="ibox-head">
+                @Html.DisplayFor(x => x.Id) <b>nolu BookGenre</b>
+            </div>
+            <div class="ibox-body">
+                <div class="form-group">
+                    <b> Genre : </b>
+                    @Html.DisplayFor(x => x.Genre)
+                </div>
+
+                <div class="form-group">
+                    <b> Description : </b>
+                    @Html.DisplayFor(x => x.Description)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

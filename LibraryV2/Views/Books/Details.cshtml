@@ -1,0 +1,81 @@
+﻿@model MVC_Library_Otomasyon.Model.Books
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg">
+        <div class="ibox">
+            <div class="ibox-head">
+                @Html.DisplayFor(x=>x.Id) <b>nolu Book</b>
+            </div>
+            <div class="ibox-body">
+                <div class="form-group">
+                    <b>  BookGenres :  </b>
+                    @Html.DisplayFor(x => x.GenreId)
+                </div>
+
+                <div class="form-group">
+                    <b> BarcodeNumber :  </b>
+                    @Html.DisplayFor(x => x.BarcodeNumber)
+                </div>
+
+                <div class="form-group">
+                    <b> BookName  :  </b>
+                    @Html.DisplayFor(x => x.BookName)
+                </div>
+
+                <div class="form-group">
+                    <b>  AuthorName :  </b>
+                    @Html.DisplayFor(x => x.AuthorName)
+                </div>
+
+                <div class="form-group">
+                    <b>  Publisher :  </b>
+                    @Html.DisplayFor(x => x.Publisher)
+                </div>
+
+                <div class="form-group">
+                    <b>  StockQuantity :  </b>
+                    @Html.DisplayFor(x => x.StockQuantity)
+                </div>
+
+                <div class="form-group">
+                    <b>  PageCount :  </b>
+                    @Html.DisplayFor(x => x.PageCount)
+                </div>
+
+                <div class="form-group">
+                    <b>  Description :  </b>
+                    @Html.DisplayFor(x => x.Description)
+                </div>
+
+                <div class="form-group">
+                    <b>  AddedDate :  </b>
+                    @Html.DisplayFor(x => x.AddedDate)
+
+                </div>
+
+                <div class="form-group">
+                    <b> UpdatedDate  :  </b>
+                    @Html.DisplayFor(x => x.UpdatedDate)
+                </div>
+
+                <div class="form-group">
+                    <b> IsDeleted :  </b>
+                    @Html.CheckBoxFor(x => x.IsDeleted)
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+

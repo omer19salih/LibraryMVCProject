@@ -1,0 +1,51 @@
+﻿@model List<MVC_Library_Otomasyon.Model.BorrowedBooks>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="ibox">
+            <div class="ibox-head">
+                BorrowedBooks List
+            </div>
+            <div class="ibox-body">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Member</th>
+                            <th>Book</th>
+                            <th>BookCount</th>
+                            <th>BorrowedDate</th>
+                            <th>ReturnDate</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(x => item.Id)</td>
+                                <td>@Html.DisplayFor(x => item.Members.FullName)</td>
+                                <td>@Html.DisplayFor(x => item.Books.BookName)</td>
+                                <td>@Html.DisplayFor(x => item.BookCount)</td>
+                                <td>@Html.DisplayFor(x => item.BorrowedDate)</td>
+                                <td>@Html.DisplayFor(x => item.ReturnDate)</td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" }) |
+                                    @Html.ActionLink("Delete", "Delete", "BorrowedBooks", new { id = item.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Kayıt silinsin mi?')" }) |
+                                    @Html.ActionLink("Return", "Return", "BorrowedBooks", new { id = item.Id }, new { @class = "btn btn-primary" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="form-group">
+                    @Html.ActionLink("New", "BorrowedBookgive", null, new { @class = "btn btn-success" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

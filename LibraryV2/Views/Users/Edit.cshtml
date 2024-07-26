@@ -1,0 +1,79 @@
+﻿
+
+@model MVC_Library_Otomasyon.Model.Users
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-lg">
+        <div class="ibox"> </div>
+        <div class=" ibox-head"> 
+
+            <h2 class="login-title">Edit process </h2>
+        </div>
+        <div class="ibox-body"> </div>
+        @using (Html.BeginForm("Edit", "Users", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+
+
+
+
+
+            <div class="form-group">
+
+                @Html.TextBoxFor(x => x.FullName, new { @class = "form-control", placeholder = "FullName" })
+                @Html.ValidationMessageFor(x => x.FullName, "", new { @class = "text-danger" })
+
+
+            </div>
+
+            <div class="form-group">
+
+                @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", placeholder = "Phone" })
+                @Html.ValidationMessageFor(x => x.Phone, "", new { @class = "text-danger" })
+            </div>
+
+
+
+            <div class="form-group">
+
+
+                @Html.TextAreaFor(x => x.Address, new { @class = "form-control", placeholder = "Address" })
+                @Html.ValidationMessageFor(x => x.Address, "", new { @class = "text-danger" })
+            </div>
+
+
+            <div class="form-group">
+                @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Email" })
+                @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.TextBoxFor(x => x.Username, new { @class = "form-control", placeholder = "Username" })
+                @Html.ValidationMessageFor(x => x.Username, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.PasswordFor(x => x.Password, new { @class = "form-control", placeholder = "Password" })
+                @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.DisplayNameFor(x => x.RegistrationDate)
+                @Html.TextBoxFor(x => x.RegistrationDate, new { @class = "form-control", type = "datetine-local",Value=Model.RegistrationDate.ToString("yyyy-MM-dd HH:nn") })
+                @Html.ValidationMessageFor(x => x.RegistrationDate, "", new { @class = "text.-danger " })
+            </div>
+
+
+
+            <div class="form-group">
+                <button class="btn btn-primary " type="submit">Save</button>
+            </div>
+        }
+    </div>
+</div>
+

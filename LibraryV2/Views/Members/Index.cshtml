@@ -1,0 +1,61 @@
+﻿@model List<MVC_Library_Otomasyon.Model.Members>
+@{
+    ViewBag.Title = "Members";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="ibox">
+            <div class="ibox-head">
+                Members
+            </div>
+            <div class="ibox-body">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>FullName</th>
+                            <th>Phone</th>
+                            <th>Address</th>
+                            <th>Email</th>
+                            <th>ImagePath</th>
+                            <th>RegistrationDate</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null && Model.Any())
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(x => item.Id)</td>
+                                    <td>@Html.DisplayFor(x => item.FullName)</td>
+                                    <td>@Html.DisplayFor(x => item.Phone)</td>
+                                    <td>@Html.DisplayFor(x => item.Address)</td>
+                                    <td>@Html.DisplayFor(x => item.Email)</td>
+                                    <td><img src="@item.ImagePath" width="100" height="100" /></td>
+                                    <td>@Html.DisplayFor(x => item.RegistrationDate)</td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Do you want to delete this record?')" })
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="8" class="text-center">No members found.</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="form-group">
+                    @Html.ActionLink("New", "Add", null, new { @class = "btn btn-success" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

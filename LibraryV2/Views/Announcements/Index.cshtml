@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MVC_Library_Otomasyon.Model.Announcements>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+
+<div class="row">
+    <div class="col-lg">
+        <div class="ibox">
+            <div class="ibox-body">
+                @if (!Model.Any())
+                {
+                    <p>No announcements found.</p>
+                }
+                else
+                {
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <!-- DisplayNameFor with a placeholder instance -->
+                                <th>@Html.DisplayNameFor(model => model.First().Title)</th>
+                                <th>@Html.DisplayNameFor(model => model.First().Announcement)</th>
+                                <th>@Html.DisplayNameFor(model => model.First().Description)</th>
+                                <th>@Html.DisplayNameFor(model => model.First().Date)</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Announcement)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                                    <td>@item.Date.ToString("MM/dd/yyyy")</td> <!-- Format the date if needed -->
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-warning" }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-sm btn-info" }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-sm btn-danger" })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+</div>

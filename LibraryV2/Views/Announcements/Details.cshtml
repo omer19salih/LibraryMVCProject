@@ -1,0 +1,41 @@
+﻿@model MVC_Library_Otomasyon.Model.Announcements
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row">
+    <div class="col-lg">
+        <div class="ibox">
+            <div class="ibox-head">
+                <h2>Announcement Details</h2>
+            </div>
+            <div class="ibox-body">
+                <div class="form-group">
+                    <b>Title:</b>
+                    @Html.DisplayFor(x => x.Title)
+                </div>
+
+                <div class="form-group">
+                    <b>Announcement:</b>
+                    @Html.DisplayFor(x => x.Announcement)
+                </div>
+
+                <div class="form-group">
+                    <b>Description:</b>
+                    @Html.DisplayFor(x => x.Description)
+                </div>
+
+                <div class="form-group"> 
+                    <b>Date:</b>
+                    @Html.DisplayFor(x => x.Date.ToString("d MMM yyyy")) <!-- Formatting date display -->
+                </div>
+
+                <div>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-warning" }) |
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

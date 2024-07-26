@@ -1,0 +1,81 @@
+﻿@model MVC_Library_Otomasyon.Model.Books
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg">
+        <div class="ibox">
+            <div class="ibox-head">
+                Book Add
+            </div>
+            <div class="ibox-body">
+                @using (Html.BeginForm("Add", "Books", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.GenreId, "Genre", htmlAttributes: new { @class = "control-label" })
+                        @Html.DropDownListFor(x => x.GenreId, (SelectList)ViewBag.list, "Select Genre", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.GenreId, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.DisplayNameFor(x => x.BarcodeNumber)
+                        @Html.TextBoxFor(x => x.BarcodeNumber, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.BarcodeNumber, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.DisplayNameFor(x => x.BookName)
+                        @Html.TextBoxFor(x => x.BookName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.BookName, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.DisplayNameFor(x => x.AuthorName)
+                        @Html.TextBoxFor(x => x.AuthorName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.AuthorName, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.DisplayNameFor(x => x.Publisher)
+                        @Html.TextBoxFor(x => x.Publisher, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Publisher, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.DisplayNameFor(x => x.StockQuantity)
+                        @Html.TextBoxFor(x => x.StockQuantity, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.StockQuantity, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.DisplayNameFor(x => x.PageCount)
+                        @Html.TextBoxFor(x => x.PageCount, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.PageCount, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.DisplayNameFor(x => x.Description)
+                        @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Description, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.AddedDate)
+                        @Html.TextBoxFor(x => x.AddedDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                        @Html.ValidationMessageFor(x => x.AddedDate, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Add</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+﻿
+@model MVC_Library_Otomasyon.Model.Members
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg">
+        <div class="ibox">
+            <div class="ibox-head">
+                Members Add
+            </div>
+            <div class="ibox-body">
+                @using (Html.BeginForm("Add", "Members", FormMethod.Post,new {enctype="multipart/forum-data"}))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+                  
+                    <div class="form-group">
+                        @Html.DisplayNameFor(x => x.FullName)
+                        @Html.TextBoxFor(x => x.FullName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.FullName, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.DisplayNameFor(x => x.Phone)
+                        @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Phone, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.DisplayNameFor(x => x.Address)
+                        @Html.TextAreaFor(x => x.Address, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Address, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.DisplayNameFor(x => x.Email)
+                        @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.DisplayNameFor(x => x.ImagePath)
+                        @Html.TextBoxFor(x => x.ImagePath, new { @class = "form-control" ,type= "file" })
+                        
+                    </div>
+
+                    <div class="form-group">
+                        @Html.DisplayNameFor(x => x.BooksReadCount)
+                        @Html.TextBoxFor(x => x.BooksReadCount, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.BooksReadCount, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.DisplayNameFor(x => x.RegistrationDate)
+                        @Html.TextBoxFor(x => x.RegistrationDate, new { @class = "form-control"  ,type = "datetime-local"})
+                        @Html.ValidationMessageFor(x => x.RegistrationDate, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Add</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

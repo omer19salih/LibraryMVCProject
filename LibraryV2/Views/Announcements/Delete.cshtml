@@ -1,0 +1,56 @@
+﻿@model MVC_Library_Otomasyon.Model.Announcements
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="row">
+    <div class="col-lg">
+        <div class="ibox">
+            <div class="ibox-head">
+                <h2>Delete Announcement</h2>
+            </div>
+            <div class="ibox-body">
+                <h3>Are you sure you want to delete this?</h3>
+                <div class="form-group">
+                    <b>Title:</b>
+                    @Html.DisplayFor(x => x.Title)
+                </div>
+
+                <div class="form-group">
+                    <b>Announcement:</b>
+                    @Html.DisplayFor(x => x.Announcement)
+                </div>
+
+                <div class="form-group">
+                    <b>Description:</b>
+                    @Html.DisplayFor(x => x.Description)
+                </div>
+
+                <div class="form-group">
+                    <b>Date:</b>
+                    @Html.DisplayFor(x => x.Date)
+                </div>
+
+                @using (Html.BeginForm("Delete", "Announcements", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-actions">
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        document.querySelector('form').addEventListener('submit', function (event) {
+            if (!confirm('Are you sure you want to delete this announcement?')) {
+                event.preventDefault();
+            }
+        });
+    </script>
+}
